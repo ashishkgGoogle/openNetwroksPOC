@@ -25,7 +25,7 @@ func sayHello(w http.ResponseWriter, r *http.Request) {
 	name := params["name"]
 
 	// Create the greeting message
-	message := fmt.Sprintf("Hello, %s!", name)
+	message := fmt.Sprintf("Hello there Lord , %s!", name)
 
 	// Write the message to the response
 	fmt.Fprintln(w, message)
