@@ -5,3 +5,5 @@ steps:
   # Push the Docker image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/common-dev-8/open-networks-poc/hello-api:latest']
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['deployment-manager', 'deployments', 'update', 'hello-api-deployment', '--config', 'deployment.yaml']

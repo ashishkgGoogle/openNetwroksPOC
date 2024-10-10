@@ -1,0 +1,52 @@
+resources:
+  - type: deploymentmanager.v2beta.deployment
+    name: hello-api-deployment
+    properties:
+      config:
+        content:
+          resources:
+            - type: container.v1.cluster
+              name: hello-api-cluster
+              properties:
+                zone: us-central1-a  # Replace with your desired zone
+                initialClusterVersion: '1.24' # Or a suitable version
+                nodePools:
+                  - name: default-pool
+                    initialNodeCount: 2
+                    config:
+                      machineType: n1-standard-1
+                      diskSizeGb: 10
+                      oauthScopes:
+                        - https://www.googleapis.com/auth/compute
+                        - https://www.googleapis.com/auth/devstorage.read_only
+                        - https://www.googleapis.com/auth/logging.write   
+                        - https://www.googleapis.com/auth/monitoring
+            - type:    kubernetes.v1.service
+              name: hello-api-service
+              properties:
+                spec:
+                  selector:
+                    app: hello-api
+                  ports:
+                    - protocol: TCP
+                      port: 80
+                      targetPort: 8000
+                  type: LoadBalancer
+            - type: kubernetes.v1.deployment
+              name: hello-api-deployment
+              properties:
+                spec:
+                  replicas: 2
+                  selector:
+                    matchLabels:
+                      app: hello-api
+                  template:
+                    metadata:
+                      labels:
+                        app: hello-api
+                    spec:
+                      containers:
+                        - name: hello-api
+                          image: us-central1-docker.pkg.dev/common-dev-8/open-networks-poc/hello-api:latest  # Replace with your image
+                          ports:
+                            - containerPort: 8000
