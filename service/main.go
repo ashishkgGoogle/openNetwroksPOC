@@ -1,32 +1,32 @@
 package main
 
-import (
-	"fmt"
-	"log"
-	"net/http"
+import "validator/validator"
 
-	"github.com/gorilla/mux"
-)
 
 func main() {
-	router := mux.NewRouter()
 
-	// Define the API endpoint
-	router.HandleFunc("/hello/{name}", sayHello).Methods("GET")
-
-	// Start the server
-	fmt.Println("Server listening on port 8000")
-	log.Fatal(http.ListenAndServe(":8000", router))
+	validator.NewTekuriValidator("q")
 }
 
-func sayHello(w http.ResponseWriter, r *http.Request) {
-	// Get the name from the URL parameters
-	params := mux.Vars(r)
-	name := params["name"]
+// func main() {
+// 	router := mux.NewRouter()
 
-	// Create the greeting message
-	message := fmt.Sprintf("Hello there Lord , %s!", name)
+// 	// Define the API endpoint
+// 	router.HandleFunc("/hello/{name}", sayHello).Methods("GET")
 
-	// Write the message to the response
-	fmt.Fprintln(w, message)
-}
+// 	// Start the server
+// 	fmt.Println("Server listening on port 8000")
+// 	log.Fatal(http.ListenAndServe(":8000", router))
+// }
+
+// func sayHello(w http.ResponseWriter, r *http.Request) {
+// 	// Get the name from the URL parameters
+// 	params := mux.Vars(r)
+// 	name := params["name"]
+
+// 	// Create the greeting message
+// 	message := fmt.Sprintf("Hello there Lord , %s!", name)
+
+// 	// Write the message to the response
+// 	fmt.Fprintln(w, message)
+// }
