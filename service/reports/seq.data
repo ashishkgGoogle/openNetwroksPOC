@@ -1,0 +1,21 @@
+goos: linux
+goarch: amd64
+pkg: validator
+cpu: AMD EPYC 7B13
+BenchmarkSanthoshTekuri-64    	   29840	     39649 ns/op	   21486 B/op	     315 allocs/op
+BenchmarkSanthoshTekuri-64    	   31666	     38200 ns/op	   21485 B/op	     315 allocs/op
+BenchmarkSanthoshTekuri-64    	   30576	     38595 ns/op	   21485 B/op	     315 allocs/op
+BenchmarkSanthoshTekuri-64    	   31150	     38993 ns/op	   21486 B/op	     315 allocs/op
+BenchmarkSanthoshTekuri-64    	   31574	     38204 ns/op	   21486 B/op	     315 allocs/op
+BenchmarkKaptinlin-64         	   18234	     68594 ns/op	   35590 B/op	     785 allocs/op
+BenchmarkKaptinlin-64         	   17665	     68903 ns/op	   35591 B/op	     785 allocs/op
+BenchmarkKaptinlin-64         	   17847	     69335 ns/op	   35592 B/op	     785 allocs/op
+BenchmarkKaptinlin-64         	   17265	     69538 ns/op	   35589 B/op	     785 allocs/op
+BenchmarkKaptinlin-64         	   17508	     69841 ns/op	   35591 B/op	     785 allocs/op
+BenchmarkXeipuuv-64           	   32925	     36111 ns/op	   15873 B/op	     404 allocs/op
+BenchmarkXeipuuv-64           	   31212	     39010 ns/op	   15873 B/op	     404 allocs/op
+BenchmarkXeipuuv-64           	   31776	     37598 ns/op	   15873 B/op	     404 allocs/op
+BenchmarkXeipuuv-64           	   32022	     36724 ns/op	   15873 B/op	     404 allocs/op
+BenchmarkXeipuuv-64           	   33469	     37548 ns/op	   15873 B/op	     404 allocs/op
+PASS
+ok  	validator	25.592s

@@ -24,6 +24,7 @@ func BenchmarkSanthoshTekuri(b *testing.B) {
 	if err != nil {
 		b.Fatal(err)
 	}
+	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		err := v.Validate(bytes.NewReader(bts))
 		if err != nil {
@@ -41,6 +42,7 @@ func BenchmarkKaptinlin(b *testing.B) {
 	if err != nil {
 		b.Fatal(err)
 	}
+	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		err := v.Validate(bytes.NewReader(bts))
 		if err != nil {
@@ -54,10 +56,11 @@ func BenchmarkXeipuuv(b *testing.B) {
 	if err != nil {
 		b.Fatal(err)
 	}
-	bts, err := os.ReadFile(instanceFile)
+	bts, err := os.ReadFile(jd)
 	if err != nil {
 		b.Fatal(err)
 	}
+	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		err := v.Validate(bts)
 		if err != nil {
