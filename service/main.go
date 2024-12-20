@@ -2,7 +2,6 @@ package main
 
 import "validator/validator"
 
-
 func main() {
 
 	validator.NewTekuriValidator("q")

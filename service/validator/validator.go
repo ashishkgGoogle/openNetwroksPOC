@@ -10,6 +10,7 @@ import (
 	kaptinlin "github.com/kaptinlin/jsonschema"
 	tekuri "github.com/santhosh-tekuri/jsonschema/v6"
 	xeipuuv "github.com/xeipuuv/gojsonschema"
+
 )
 
 type tekuriValidator struct {
@@ -101,3 +102,4 @@ func (v *xeipuuvValidator) Validate(b []byte) error {
 	}
 	return nil
 }
+
