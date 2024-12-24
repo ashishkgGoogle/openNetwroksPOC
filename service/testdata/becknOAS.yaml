@@ -56,10 +56,10 @@ paths:
                                     - code
                             bap_id:
                               type: string
-                              pattern: '^(?!https?://).*$'
+                              pattern: '^([^h]|h[^t]|ht[^t]|htt[^p]|http[^s:]|https?:[^/]).*$'
                             bpp_id:
                               type: string
-                              pattern: '^(?!https?://).*$'
+                              pattern: '^([^h]|h[^t]|ht[^t]|htt[^p]|http[^s:]|https?:[^/]).*$'
                             ttl:
                               type: string
                               format: date-time
@@ -110,7 +110,6 @@ paths:
                                     - collected_by
                               required:
                                 - payment
-                                - tags
                           required:
                             - intent
                     - properties:

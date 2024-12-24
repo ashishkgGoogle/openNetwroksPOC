@@ -37,7 +37,7 @@
           ]
         },
         "payment": {
-          "collected_by": 1,
+          "collected_by": "BPP",
           "tags": [
             {
               "descriptor": {

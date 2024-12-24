@@ -1,127 +1,16 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Generated schema for Root",
     "type": "object",
     "properties": {
-      "deeplyNested": {
-        "type": "object",
-        "properties": {
-          "level1": {
-            "type": "object",
-            "properties": {
-              "level2": {
-                "type": "object",
-                "properties": {
-                  "level3": {
-                    "type": "object",
-                    "properties": {
-                      "level4": {
-                        "type": "object",
-                        "properties": {
-                          "level5": {
-                            "type": "object",
-                            "properties": {
-                              "level6": {
-                                "type": "object",
-                                "properties": {
-                                  "level7": {
-                                    "type": "object",
-                                    "properties": {
-                                      "level8": {
-                                        "type": "object",
-                                        "properties": {
-                                          "level9": {
-                                            "type": "object",
-                                            "properties": {
-                                              "level10": {
-                                                "type": "string"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+      "name": {
+        "type": "string"
       },
-      "largeArray": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "id": { "type": "integer" },
-            "name": { "type": "string" },
-            "value": { "type": "number" }
-          }
-        },
-        "minItems": 3,
-        "maxItems": 1000
+      "patties": {
+        "type": "integer"
       },
-      "conditional": {
-        "type": "object",
-        "properties": {
-          "type": { "type": "string", "enum": ["A", "B", "C"] },
-          "value": {
-            "if": { "properties": { "type": { "const": "A" } } },
-            "then": { "type": "integer" },
-            "else": {
-              "if": { "properties": { "type": { "const": "B" } } },
-              "then": { "type": "string" },
-              "else": { "type": "boolean" }
-            }
-          }
-        }
-      },
-      "references": {
-        "type": "object",
-        "properties": {
-          "user": { "$ref": "#/$defs/user" },
-          "product": { "$ref": "#/$defs/product" }
-        }
-      }
-    },
-    "$defs": {
-      "user": {
-        "type": "object",
-        "properties": {
-          "name": { "$ref": "#/$defs/name" },
-          "address": { "$ref": "#/$defs/address" }
-        }
-      },
-      "name": { 
-        "type": "object",
-        "properties": {
-          "first": { "type": "string" },
-          "last": { "type": "string" }
-        }
-      },
-      "address": {
-        "type": "object",
-        "properties": {
-          "street": { "type": "string" },
-          "city": { "type": "string" },
-          "zip": { "type": "string" } 
-        }
-      },
-      "product": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "name": { "type": "string" },
-          "description": { "type": "string" },
-          "price": { "type": "number" }
-        }
+      "vegetarian": {
+        "type": "boolean"
       }
     }
   }

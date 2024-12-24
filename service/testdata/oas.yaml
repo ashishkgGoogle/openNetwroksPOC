@@ -1,1 +1,16 @@
-Unable to locate a Java Runtime that supports apt.
+openapi: 3.1.0
+paths:
+  /burgers/createBurger:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                patties:
+                  type: integer
+                vegetarian:
+                  type: boolean

@@ -1,48 +1,5 @@
 {
-    "deeplyNested": {
-      "level1": {
-        "level2": {
-          "level3": {
-            "level4": {
-              "level5": {
-                "level6": {
-                  "level7": {
-                    "level8": {
-                      "level9": {
-                        "level10": "Deeply nested value"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "largeArray": [
-      { "id": 1, "name": "Item 1", "value": 1.23 },
-      { "id": 2, "name": "Item 2", "value": 4.56 },
-      { "id": 3, "name": "Item 3", "value": 7.89 }
-    ],
-    "conditional": {
-      "type": "A", 
-      "value": 123 
-    },
-    "references": {
-      "user": {
-        "name": { "first": "John", "last": "Doe" },
-        "address": {
-          "street": "123 Main St",
-          "city": "Anytown",
-          "zip": "12345" 
-        }
-      },
-      "product": {
-        "id": "prod123",
-        "name": "Awesome Product",
-        "description": "This is a really awesome product!",
-        "price": 99.99
-      }
-    }
-  }
+  "name": "Big Mac",
+  "patties": 1,
+  "vegetarian": false
+}
