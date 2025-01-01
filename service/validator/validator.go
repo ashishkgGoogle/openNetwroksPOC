@@ -10,7 +10,6 @@ import (
 	kaptinlin "github.com/kaptinlin/jsonschema"
 	tekuri "github.com/santhosh-tekuri/jsonschema/v6"
 	xeipuuv "github.com/xeipuuv/gojsonschema"
-
 )
 
 type tekuriValidator struct {
@@ -56,9 +55,10 @@ func NewKaptinlinValidator(f string) (*kaptinlinValidator, error) {
 	return &kaptinlinValidator{s: s}, nil
 }
 
-func (v *kaptinlinValidator) Validate(r io.Reader) error {
-	d, err := tekuri.UnmarshalJSON(r)
-	if err != nil {
+func (v *kaptinlinValidator) Validate(b []byte) error {
+	d := map[string]any{}
+
+	if err := json.Unmarshal(b, &d); err != nil {
 		return err
 	}
 	result := v.s.Validate(d)
@@ -87,7 +87,7 @@ func NewXeipuuvValidator(f string) (*xeipuuvValidator, error) {
 }
 
 func (v *xeipuuvValidator) Validate(b []byte) error {
-	d:= xeipuuv.NewBytesLoader(b)
+	d := xeipuuv.NewBytesLoader(b)
 	result, err := v.s.Validate(d)
 	if err != nil {
 		return err
@@ -102,4 +102,3 @@ func (v *xeipuuvValidator) Validate(b []byte) error {
 	}
 	return nil
 }
-

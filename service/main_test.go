@@ -73,7 +73,7 @@ func BenchmarkKaptinlin(b *testing.B) {
 	}
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		err := v.Validate(bytes.NewReader(bts))
+		err := v.Validate(bts)
 		if err != nil {
 			b.Error(err)
 		}
@@ -92,7 +92,7 @@ func BenchmarkKaptinlinParallel(b *testing.B) {
 	b.ResetTimer()
 	b.RunParallel(func(pb *testing.PB) {
 		for pb.Next() {
-			err := v.Validate(bytes.NewReader(bts))
+			err := v.Validate(bts)
 			if err != nil {
 				b.Error(err)
 			}

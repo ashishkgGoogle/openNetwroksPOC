@@ -10,7 +10,30 @@ paths:
               properties:
                 name:
                   type: string
-                patties:
+                age:
                   type: integer
-                vegetarian:
-                  type: boolean
+                  minimum: 0
+                address:
+                  type: object
+                  properties:
+                    street:
+                      type: string
+                    city:
+                      type: string
+                    state:
+                      type: string
+                    postalCode:
+                      type: string
+                      pattern: '\d{5}'
+                required:
+                  - street
+                  - city
+                  - state
+                  - postalCode
+              hobbies:
+                type: array
+                items:
+                  type: string
+            required:
+              - name
+              - age
