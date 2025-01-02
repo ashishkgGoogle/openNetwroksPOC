@@ -1,31 +1,35 @@
 package main
 
-import "validator/validator"
-
-func main() {
-
-	validator.NewTekuriValidator("q")
-}
+import (
+	"validator/config"
+	"validator/models"
+)
 
 // func main() {
-// 	router := mux.NewRouter()
+//     app := fiber.New()
 
-// 	// Define the API endpoint
-// 	router.HandleFunc("/hello/{name}", sayHello).Methods("GET")
+//     config.ConnectDatabase()
 
-// 	// Start the server
-// 	fmt.Println("Server listening on port 8000")
-// 	log.Fatal(http.ListenAndServe(":8000", router))
+//     app.Get("/books", models.GetBooks)
+//     app.Get("/books/:id", models.GetBookByID)
+//     app.Post("/books", models.CreateBook)
+//     app.Put("/books/:id", models.UpdateBook)
+//     app.Delete("/books/:id", models.DeleteBook)
+
+//     log.Fatal(app.Listen(":3000"))
 // }
 
-// func sayHello(w http.ResponseWriter, r *http.Request) {
-// 	// Get the name from the URL parameters
-// 	params := mux.Vars(r)
-// 	name := params["name"]
+func main() {
+	// Initialize database connection
+	config.ConnectDatabase()
 
-// 	// Create the greeting message
-// 	message := fmt.Sprintf("Hello there Lord , %s!", name)
+	// Migrate the schema (create the table if it doesn't exist)
+	config.DB.AutoMigrate(&models.Book{})
 
-// 	// Write the message to the response
-// 	fmt.Fprintln(w, message)
-// }
+	// Perform CRUD operations
+	models.CreateBook("The Catcher in the Rye", "J.D. Salinger", 1951, "978-0-316-76948-0")
+	models.GetBooks()
+	models.GetBookByID(1)
+	models.UpdateBook(1, "The Catcher in the Rye - Updated")
+	models.DeleteBook(1)
+}
